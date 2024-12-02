@@ -17,6 +17,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages  # 设置为你的 GitHub Pages 分支
-        folder: build  # 构建输出的文件夹（比如静态网站的 build 或 dist 文件夹）
+        branch: main  # 设置为你的 GitHub Pages 分支
+        folder: .  # 构建输出的文件夹（比如静态网站的 build 或 dist 文件夹）
         token: ${{ secrets.GITHUB_TOKEN }}  # 自动创建的 GitHub Token
