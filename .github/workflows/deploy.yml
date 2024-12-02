@@ -1,0 +1,22 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 你可以根据需要调整为你使用的分支名
+    paths:
+      - '**/*.md'  # 只在README.md或其他md文件更新时触发部署
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages  # 设置为你的 GitHub Pages 分支
+        folder: build  # 构建输出的文件夹（比如静态网站的 build 或 dist 文件夹）
+        token: ${{ secrets.GITHUB_TOKEN }}  # 自动创建的 GitHub Token
